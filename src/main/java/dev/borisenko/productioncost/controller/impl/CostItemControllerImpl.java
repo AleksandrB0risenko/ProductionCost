@@ -34,7 +34,7 @@ public class CostItemControllerImpl implements CostItemController {
         if (t.isPresent()) {
             return new ResponseEntity<>(t.get(), HttpStatus.OK);
         } else {
-            return new ResponseEntity<>(new MessageResponse(ERR_MSG + id), HttpStatus.NO_CONTENT);
+            return new ResponseEntity<>(new MessageResponse(ERR_MSG + id), HttpStatus.NOT_FOUND);
         }
     }
 
@@ -50,7 +50,7 @@ public class CostItemControllerImpl implements CostItemController {
             costItemService.delete(id);
             return new ResponseEntity<>(HttpStatus.OK);
         } else {
-            return new ResponseEntity<>(new MessageResponse(ERR_MSG + id), HttpStatus.NO_CONTENT);
+            return new ResponseEntity<>(new MessageResponse(ERR_MSG + id), HttpStatus.NOT_FOUND);
         }
     }
 
@@ -61,7 +61,7 @@ public class CostItemControllerImpl implements CostItemController {
             costItemService.save(costItem);
             return new ResponseEntity<>(new MessageResponse(SUC_MSG), HttpStatus.OK);
         } else {
-            return new ResponseEntity<>(new MessageResponse(ERR_MSG + id), HttpStatus.NO_CONTENT);
+            return new ResponseEntity<>(new MessageResponse(ERR_MSG + id), HttpStatus.NOT_FOUND);
         }
     }
 }

@@ -1,7 +1,6 @@
 package dev.borisenko.productioncost.controller.impl;
 
 import dev.borisenko.productioncost.controller.UserController;
-import dev.borisenko.productioncost.model.Cost;
 import dev.borisenko.productioncost.model.User;
 import dev.borisenko.productioncost.payload.response.MessageResponse;
 import dev.borisenko.productioncost.service.UserService;
@@ -35,7 +34,7 @@ public class UserControllerImpl implements UserController {
         if (t.isPresent()) {
             return new ResponseEntity<>(t.get(), HttpStatus.OK);
         } else {
-            return new ResponseEntity<>(new MessageResponse(ERR_MSG + id), HttpStatus.NO_CONTENT);
+            return new ResponseEntity<>(new MessageResponse(ERR_MSG + id), HttpStatus.NOT_FOUND);
         }
     }
 
@@ -51,7 +50,7 @@ public class UserControllerImpl implements UserController {
             userService.delete(id);
             return new ResponseEntity<>(HttpStatus.OK);
         } else {
-            return new ResponseEntity<>(new MessageResponse(ERR_MSG + id), HttpStatus.NO_CONTENT);
+            return new ResponseEntity<>(new MessageResponse(ERR_MSG + id), HttpStatus.NOT_FOUND);
         }
     }
 
@@ -62,7 +61,7 @@ public class UserControllerImpl implements UserController {
             userService.save(user);
             return new ResponseEntity<>(new MessageResponse(SUC_MSG), HttpStatus.OK);
         } else {
-            return new ResponseEntity<>(new MessageResponse(ERR_MSG + id), HttpStatus.NO_CONTENT);
+            return new ResponseEntity<>(new MessageResponse(ERR_MSG + id), HttpStatus.NOT_FOUND);
         }
     }
 }

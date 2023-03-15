@@ -18,7 +18,7 @@ import java.util.List;
 public class UserDetailsImpl implements UserDetails {
     @Serial
     private static final long serialVersionUID = 1L;
-    private long userId;
+    private int id;
     private String username;
     @JsonIgnore
     private String password;

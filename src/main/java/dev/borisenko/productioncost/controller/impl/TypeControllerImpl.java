@@ -1,19 +1,14 @@
 package dev.borisenko.productioncost.controller.impl;
 
 import dev.borisenko.productioncost.controller.TypeController;
-import dev.borisenko.productioncost.model.Cost;
 import dev.borisenko.productioncost.model.Type;
 import dev.borisenko.productioncost.payload.response.MessageResponse;
-import dev.borisenko.productioncost.repository.CostRepo;
-import dev.borisenko.productioncost.repository.TypeRepo;
-import dev.borisenko.productioncost.service.CostService;
 import dev.borisenko.productioncost.service.TypeService;
 import org.springframework.beans.factory.annotation.Autowired;
 import org.springframework.http.HttpStatus;
 import org.springframework.http.ResponseEntity;
 import org.springframework.web.bind.annotation.RestController;
 
-import java.util.List;
 import java.util.Optional;
 
 @RestController
@@ -39,7 +34,7 @@ public class TypeControllerImpl implements TypeController {
         if (t.isPresent()) {
             return new ResponseEntity<>(t.get(), HttpStatus.OK);
         } else {
-            return new ResponseEntity<>(new MessageResponse(ERR_MSG + id), HttpStatus.NO_CONTENT);
+            return new ResponseEntity<>(new MessageResponse(ERR_MSG + id), HttpStatus.NOT_FOUND);
         }
     }
 
@@ -55,7 +50,7 @@ public class TypeControllerImpl implements TypeController {
             typeService.delete(id);
             return new ResponseEntity<>(HttpStatus.OK);
         } else {
-            return new ResponseEntity<>(new MessageResponse(ERR_MSG + id), HttpStatus.NO_CONTENT);
+            return new ResponseEntity<>(new MessageResponse(ERR_MSG + id), HttpStatus.NOT_FOUND);
         }
     }
 
@@ -66,7 +61,7 @@ public class TypeControllerImpl implements TypeController {
             typeService.save(type);
             return new ResponseEntity<>(new MessageResponse(SUC_MSG), HttpStatus.OK);
         } else {
-            return new ResponseEntity<>(new MessageResponse(ERR_MSG + id), HttpStatus.NO_CONTENT);
+            return new ResponseEntity<>(new MessageResponse(ERR_MSG + id), HttpStatus.NOT_FOUND);
         }
     }
 }

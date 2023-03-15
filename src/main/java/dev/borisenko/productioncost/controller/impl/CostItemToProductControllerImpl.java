@@ -3,14 +3,11 @@ package dev.borisenko.productioncost.controller.impl;
 import dev.borisenko.productioncost.controller.CostItemToProductController;
 import dev.borisenko.productioncost.model.CostItemToProduct;
 import dev.borisenko.productioncost.payload.response.MessageResponse;
-import dev.borisenko.productioncost.repository.CostItemToProductRepo;
 import dev.borisenko.productioncost.service.CostItemToProductService;
 import org.springframework.beans.factory.annotation.Autowired;
 import org.springframework.http.HttpStatus;
 import org.springframework.http.ResponseEntity;
 import org.springframework.web.bind.annotation.RestController;
-
-import java.util.List;
 
 @RestController
 public class CostItemToProductControllerImpl implements CostItemToProductController {

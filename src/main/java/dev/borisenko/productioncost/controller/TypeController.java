@@ -2,6 +2,7 @@ package dev.borisenko.productioncost.controller;
 
 import dev.borisenko.productioncost.model.Type;
 import org.springframework.http.ResponseEntity;
+import org.springframework.security.access.prepost.PreAuthorize;
 import org.springframework.web.bind.annotation.*;
 
 import javax.validation.Valid;
@@ -11,11 +12,11 @@ import javax.validation.Valid;
 @CrossOrigin(origins = "*", maxAge = 3600)
 public interface TypeController {
     @GetMapping("/get/all")
-        //@PreAuthorize("hasRole('USER')")
+    @PreAuthorize("hasRole('USER')")
     ResponseEntity<?> getAll();
 
     @GetMapping("/get/{id}")
-        //@PreAuthorize("hasRole('USER')")
+    //@PreAuthorize("hasRole('USER')")
     ResponseEntity<?> getById(@PathVariable("id") int id);
 
     @PostMapping("/add")

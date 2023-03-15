@@ -17,7 +17,7 @@ import java.util.Optional;
 
 @Service
 @RequiredArgsConstructor
-public class UserService /*implements UserDetailsService*/ {
+public class UserService {
     private final UserRepo userRepo;
     private BCryptPasswordEncoder bCryptPasswordEncoder = new BCryptPasswordEncoder();
 
@@ -29,15 +29,6 @@ public class UserService /*implements UserDetailsService*/ {
     public List<User> getAll() {
         return userRepo.findAll();
     }
-
-    /*public User getUserByUsername(String username) {
-        return userRepo.getByUsername(username);
-    }
-
-    public boolean isPresent(User user) {
-        Optional<User> existingUser = userRepo.findByUsername(user.getUsername());
-        return existingUser.isPresent() ? true : false;
-    }*/
 
     public Optional<User> getById(int id) {
         return userRepo.findById(id);
@@ -54,13 +45,4 @@ public class UserService /*implements UserDetailsService*/ {
     public void delete(int id) {
         userRepo.deleteById(id);
     }
-
-    /*@Override
-    public UserDetails loadUserByUsername(String username) throws UsernameNotFoundException {
-        return userRepo.findByUsername(username).orElseThrow(
-                () -> new UsernameNotFoundException(
-                        String.format("USER_NOT_FOUND", username)
-                )
-        );
-    }*/
 }
