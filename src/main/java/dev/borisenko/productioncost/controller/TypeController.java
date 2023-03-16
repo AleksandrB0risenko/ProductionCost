@@ -12,7 +12,7 @@ import javax.validation.Valid;
 @CrossOrigin(origins = "*", maxAge = 3600)
 public interface TypeController {
     @GetMapping("/get/all")
-    @PreAuthorize("hasRole('USER')")
+    //@PreAuthorize("hasRole('USER')")
     ResponseEntity<?> getAll();
 
     @GetMapping("/get/{id}")

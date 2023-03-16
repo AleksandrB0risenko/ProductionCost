@@ -1,7 +1,5 @@
 package dev.borisenko.productioncost.controller;
 
-import dev.borisenko.productioncost.model.Cost;
-import dev.borisenko.productioncost.model.CostItem;
 import dev.borisenko.productioncost.model.Status;
 import org.springframework.http.ResponseEntity;
 import org.springframework.web.bind.annotation.*;

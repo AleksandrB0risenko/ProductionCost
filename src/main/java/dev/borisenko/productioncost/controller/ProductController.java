@@ -31,4 +31,8 @@ public interface ProductController {
     @PutMapping("/update/{id}")
         //@PreAuthorize("hasRole('USER')")
     ResponseEntity<?> update(@PathVariable("id") int id, @Valid @RequestBody Product product);
+
+    @PostMapping("/report/{id}")
+        //@PreAuthorize("hasRole('USER')")
+    ResponseEntity<?> report(@PathVariable("id") int id);
 }
