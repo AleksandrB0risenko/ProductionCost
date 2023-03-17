@@ -25,9 +25,9 @@ public class CostControllerImpl implements CostController {
     }
 
     @Override
-    public ResponseEntity<?> getAll(int id) { // id статьи затрат
-        List<Cost> costs = costService.findAllByCostItemId(id);
-        costs.sort(Comparator.comparing(Cost::getCurrentDate));
+    public ResponseEntity<?> getAll(int id) {
+        /*List<Cost> costs = costService.findAllByCostItemId(id);
+        costs.sort(Comparator.comparing(Cost::getCurrentDate));*/
         return new ResponseEntity<>(costService.getAll(), HttpStatus.OK);
     }
 
